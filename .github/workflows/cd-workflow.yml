@@ -10,10 +10,13 @@ on:
 
 
 jobs:
+  relate-ci-workflow:
+    uses: ./.github/workflows/ci-workflow.yml
   registerpackage:
     name: Register Package
+    needs: relate-ci-workflow
     runs-on: ubuntu-latest
-    steps:
+    steps: 
       - name: ServiceNow Register Package
         uses: ServiceNow/servicenow-devops-register-package@v2.0.0
         with:
