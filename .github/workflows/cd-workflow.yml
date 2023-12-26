@@ -11,12 +11,13 @@ on:
 
 jobs:
   registerpackage:
-    - name: Checkout
-      uses: actions/checkout@v4.0.0
+
       
     name: Register Package
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4.0.0
       - name: ServiceNow Register Package
         uses: ServiceNow/servicenow-devops-register-package@v2.0.0
         with:
